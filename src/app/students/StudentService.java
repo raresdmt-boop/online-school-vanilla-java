@@ -102,7 +102,7 @@ public class StudentService {
         listaStudenti.add(s10);
 
     }
-asdasdsadsadasdsa
+
     void afisareStudenti() {
         for (int i = 0; i < listaStudenti.size(); i++) {
             System.out.println(listaStudenti.get(i).descriere());
