@@ -2,9 +2,7 @@ package app.students;
 
 import app.books.BooksService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class StudentService {
     List<Student> listaStudenti = new ArrayList<>();
@@ -130,6 +128,35 @@ public class StudentService {
                 }
             }
         }
+    }
+
+    public Student creeazaStudent(Student student) {
+        student.id= generateID();
+        listaStudenti.add(student);
+        return student;
+    }
+
+
+    //functie ce returneaza un student dupa id
+    public Student getStudentByID(int id) {
+        for (int i = 0; i < listaStudenti.size(); i++) {
+            if (listaStudenti.get(i).id == id) {
+                return listaStudenti.get(i);
+            }
+        }
+        return null;
+    }
+
+    public int generateID() {
+        Random rand = new Random();
+
+        int id=rand.nextInt(9999)+1;
+        while (getStudentByID(id)!=null) {
+            id=rand.nextInt(9999)+1;
+        }
+
+        return id;
+
     }
 
 

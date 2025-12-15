@@ -3,11 +3,11 @@ package app.students;
 public class Student {
 
     public int id;
-    String firstName;
-    String lastName;
-    String email;
-    String password;
-    int age;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public String password;
+    public int age;
 
     public String descriere(){
         String raspuns="Seria: "+this.id+"\n";
