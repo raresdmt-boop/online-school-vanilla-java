@@ -2,7 +2,7 @@ package app.course;
 
 public class Course {
 
-    int id;
-    String name;
-    String department;
+    public int id;
+    public String name;
+    public String department;
 }

@@ -2,8 +2,8 @@ package app.enrollment;
 
 public class Enrollment {
 
-    int id;
-    int courseID;
-    int studentID;
-    String createdAt;
+    public int id;
+    public int courseID;
+    public int studentID;
+    public String createdAt;
 }

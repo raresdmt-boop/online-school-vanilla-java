@@ -107,7 +107,6 @@ public class StudentService {
         }
     }
 
-
     public Student getStudent(String email, String pass) {
         for (int i = 0; i < listaStudenti.size(); i++) {
             Student student = listaStudenti.get(i);
@@ -136,8 +135,6 @@ public class StudentService {
         return student;
     }
 
-
-    //functie ce returneaza un student dupa id
     public Student getStudentByID(int id) {
         for (int i = 0; i < listaStudenti.size(); i++) {
             if (listaStudenti.get(i).id == id) {
@@ -158,6 +155,7 @@ public class StudentService {
         return id;
 
     }
+
 
 
 

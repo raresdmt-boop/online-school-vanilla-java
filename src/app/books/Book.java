@@ -1,11 +1,11 @@
 package app.books;
 
-public class Books {
+public class Book {
 
     int id;
-    int studentID;
+    public int studentID;
     public String bookName;
-    String createdAt;
+    public String createdAt;
 
     public String descriere(){
         String raspuns="ID "+this.id;
