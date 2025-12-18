@@ -39,9 +39,15 @@ public class StudentView {
                     adaugaCarte();
                     break;
                 case 5:
-                    updateCarte();
+                    updateDenumireCarte();
                     break;
                 case 6:
+                    updateDataCarte();
+                    break;
+                case 7:
+                    stergeCarte();
+                    break;
+                case 8:
                     signOut();
                     break;
                 default:
@@ -61,8 +67,11 @@ public class StudentView {
         System.out.println("2-> Register.");
         System.out.println("3-> Carti Student.");
         System.out.println("4-> Adauga Carte.");
-        System.out.println("5-> Editeaza carte");
-        System.out.println("6-> Sign Out.");
+        System.out.println("5-> Editeaza denumire carte");
+        System.out.println("6-> Editeaza data cartii");
+        System.out.println("7-> Sterge cartea.");
+        System.out.println("8-> Sign Out.");
+
     }
     void cartiStudent() {
         verificaLogat();
@@ -127,36 +136,46 @@ public class StudentView {
 
         booksService.addBook(book);
     }
-    void updateCarte(){
+    void updateDenumireCarte() {
         verificaLogat();
         System.out.println("Ce carte doriti sa modificati?");
         String nume = sc.nextLine();
         Book book = booksService.getBookByName(nume);
-        boolean continua = true;
-        while(continua) {
-            meniuUpdate();
-            switch (sc.nextLine()) {
-                case "1":
-                    System.out.println("Introduceti noua denumire: ");
-                    book.bookName = sc.nextLine();
-                    break;
-                case "2":
-                    System.out.println("Introduceti noua data: ");
-                    book.createdAt = sc.nextLine();
-                    break;
-                default:
-                    System.out.println("Am iesit din meniu");
-                    continua = false;
-            }
+        if(verificaApartenenta(book)) {
+            System.out.println("Introduceti noua denumire: ");
+            book.bookName = sc.nextLine();
+            System.out.println("Update complet");
+        }else{
+            System.out.println("Nu este cartea dvs.");
         }
     }
-    public void meniuUpdate(){
-        System.out.println("Ati selectat cartea "+book.bookName);
-        System.out.println("Ce doriti sa modificati la aceasta carte?");
-        System.out.println("1->Denumirea cartii.");
-        System.out.println("2->Data cartii");
-
+    void updateDataCarte(){
+        verificaLogat();
+        System.out.println("Care carte doriti sa modificati?");
+        String nume = sc.nextLine();
+        Book book = booksService.getBookByName(nume);
+        if(verificaApartenenta(book)) {
+            System.out.println("Introduceti noua data: ");
+            book.createdAt = sc.nextLine();
+            System.out.println("Update complet");
+        }else{
+            System.out.println("Nu este cartea dvs.");
+        }
+    }
+    void stergeCarte(){
+        verificaLogat();
+        System.out.println("Care carte doriti sa stergeti?");
+        Book book = booksService.getBookByName(sc.nextLine());
+        if(book.studentID==logat.id) {
+            booksService.stergeCarte(book);
+            System.out.println("Cartea "+book.bookName+" a fost stearsa");
+        }else{
+            System.out.println("Nu este cartea dvs.");
+        }
     }
 
+    boolean verificaApartenenta(Book book) {
+       return logat.id == book.studentID;
+    }
 }
 

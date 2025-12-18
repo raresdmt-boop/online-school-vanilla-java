@@ -268,5 +268,15 @@ public class BooksService {
         return book;
     }
 
+    public void stergeCarte(Book book){
+        if(book!=null){
+            this.listaBooks.remove(book);
+            System.out.println("Cartea a fost stearsa");
+        }else{
+            System.out.println("Cartea nu exista");
+        }
+    }
+
+
 
 }
