@@ -2,6 +2,9 @@ package app;
 
 import app.books.Book;
 import app.books.BooksService;
+import app.course.CourseService;
+import app.enrollment.Enrollment;
+import app.enrollment.EnrollmentService;
 import app.students.Student;
 import app.students.StudentService;
 
@@ -16,11 +19,16 @@ public class StudentView {
     Scanner sc = new Scanner(System.in);
     Student logat = null;
     Student studentNou = new Student();
+    CourseService courseService = new CourseService();
+    EnrollmentService enrollmentService = new EnrollmentService();
+    Enrollment enrollment = new Enrollment();
 
 
     public void play() {
         this.studentService.loadStudents();
         this.booksService.loadBooks();
+        this.courseService.loadCourse();
+        this.enrollmentService.loadEnrollments();
         boolean continua = true;
         while (continua) {
             meniuInitial();
@@ -48,6 +56,9 @@ public class StudentView {
                     stergeCarte();
                     break;
                 case 8:
+                    afiseazaCursuri();
+                    break;
+                case 9:
                     signOut();
                     break;
                 default:
@@ -70,7 +81,8 @@ public class StudentView {
         System.out.println("5-> Editeaza denumire carte");
         System.out.println("6-> Editeaza data cartii");
         System.out.println("7-> Sterge cartea.");
-        System.out.println("8-> Sign Out.");
+        System.out.println("8-> Afiseaza cursuri");
+        System.out.println("9-> Sign Out.");
 
     }
     void cartiStudent() {
@@ -177,5 +189,13 @@ public class StudentView {
     boolean verificaApartenenta(Book book) {
        return logat.id == book.studentID;
     }
+
+    void afiseazaCursuri(){
+        verificaLogat();
+        Enrollment enroll = enrollmentService.getEnrollments(logat.id);
+        int courseID = enroll.courseID;
+        courseService.getCourseById(courseID);
+    }
+
 }
 

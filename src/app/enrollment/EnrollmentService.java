@@ -121,4 +121,16 @@ public class EnrollmentService {
         }
     }
 
+    public Enrollment getEnrollments(int studentID){
+        for (int i = 0; i<enrollmentsList.size(); i++){
+            if(enrollmentsList.get(i).studentID==studentID){
+                return  enrollmentsList.get(i);
+            }
+        }
+        return null;
+    }
+
+    public int getCourseByEnrollment(Enrollment enrollment){
+        return  enrollment.courseID;
+    }
 }
