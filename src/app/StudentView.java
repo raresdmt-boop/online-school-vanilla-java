@@ -2,6 +2,7 @@ package app;
 
 import app.books.Book;
 import app.books.BooksService;
+import app.course.Course;
 import app.course.CourseService;
 import app.enrollment.Enrollment;
 import app.enrollment.EnrollmentService;
@@ -22,6 +23,7 @@ public class StudentView {
     CourseService courseService = new CourseService();
     EnrollmentService enrollmentService = new EnrollmentService();
     Enrollment enrollment = new Enrollment();
+    Course course =  new Course();
 
 
     public void play() {
@@ -59,6 +61,9 @@ public class StudentView {
                     afiseazaCursuri();
                     break;
                 case 9:
+                    inscriereLaCurs();
+                    break;
+                case 10:
                     signOut();
                     break;
                 default:
@@ -82,7 +87,8 @@ public class StudentView {
         System.out.println("6-> Editeaza data cartii");
         System.out.println("7-> Sterge cartea.");
         System.out.println("8-> Afiseaza cursuri");
-        System.out.println("9-> Sign Out.");
+        System.out.println("9-> Inscriere la curs.");
+        System.out.println("10-> Sign Out.");
 
     }
     void cartiStudent() {
@@ -189,13 +195,23 @@ public class StudentView {
     boolean verificaApartenenta(Book book) {
        return logat.id == book.studentID;
     }
-
     void afiseazaCursuri(){
         verificaLogat();
         Enrollment enroll = enrollmentService.getEnrollments(logat.id);
         int courseID = enroll.courseID;
         courseService.getCourseById(courseID);
     }
-
+    void inscriereLaCurs() {
+        verificaLogat();
+        System.out.println("La ce curs doriti sa va inscrieti?");
+        course = courseService.getCourseByName(sc.nextLine());
+        if (course == null) {
+            System.out.println("Nu exista un curs cu aceasta denumire");
+        } else {
+            enrollmentService.createEnrollment(logat.id, course.id);
+            System.out.println("Studentul "+logat.firstName);
+            System.out.println("V-ati inscris cu succes la cursul " + course.name);
+        }
+    }
 }
 

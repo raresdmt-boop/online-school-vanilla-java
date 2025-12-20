@@ -41,4 +41,13 @@ public class CourseService {
         }
     }
 
+    public Course getCourseByName(String courseName) {
+        for(int i = 0; i < listaCourses.size(); i++) {
+            if(listaCourses.get(i).name.equals(courseName)) {
+                return  listaCourses.get(i);
+            }
+        }
+        return null;
+    }
+
 }

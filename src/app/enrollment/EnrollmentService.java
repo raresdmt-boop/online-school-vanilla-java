@@ -1,6 +1,7 @@
 package app.enrollment;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class EnrollmentService {
     ArrayList<Enrollment> enrollmentsList = new ArrayList<Enrollment>();
@@ -116,8 +117,10 @@ public class EnrollmentService {
     }
 
     public void afisareEnrol(){
-        for (int i = 0; i<enrollmentsList.size(); i++){
-            System.out.println(enrollmentsList.get(i).toString());
+        for (int i = 0; i<enrollmentsList.size(); i++) {
+            if (i == 15) {
+                System.out.println(enrollmentsList.get(i).studentID);
+            }
         }
     }
 
@@ -132,5 +135,37 @@ public class EnrollmentService {
 
     public int getCourseByEnrollment(Enrollment enrollment){
         return  enrollment.courseID;
+    }
+
+    public void createEnrollment(int studentID, int courseID){
+        Enrollment newE = new Enrollment();
+        newE.id = generateID();
+        newE.courseID = courseID;
+        newE.studentID = studentID;
+        newE.createdAt = "random date";
+
+        enrollmentsList.add(newE);
+        System.out.println("Am adaugat un nou enrollment cu course ID: "+courseID);
+        System.out.println("Si cu student ID: "+studentID);
+        afisareEnrol();
+    }
+    public Enrollment getEnrollmentByID(int id){
+        for (int i = 0; i<enrollmentsList.size(); i++){
+            if(enrollmentsList.get(i).id==id){
+                return enrollmentsList.get(i);
+            }
+        }
+        return null;
+    }
+
+    public int generateID(){
+        Random rand = new Random();
+
+        int id=rand.nextInt(9999)+1;
+        while (getEnrollmentByID(id)!=null) {
+            id=rand.nextInt(9999)+1;
+        }
+
+        return id;
     }
 }
