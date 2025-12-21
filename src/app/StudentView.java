@@ -65,6 +65,9 @@ public class StudentView {
                     inscriereLaCurs();
                     break;
                 case 10:
+                    creeazaCurs();
+                    break;
+                case 11:
                     signOut();
                     break;
                 default:
@@ -89,7 +92,8 @@ public class StudentView {
         System.out.println("7-> Sterge cartea.");
         System.out.println("8-> Afiseaza cursuri");
         System.out.println("9-> Inscriere la curs.");
-        System.out.println("10-> Sign Out.");
+        System.out.println("10-> Creaza curs.");
+        System.out.println("11-> Sign Out.");
 
     }
     void cartiStudent() {
@@ -199,12 +203,11 @@ public class StudentView {
     void afiseazaCursuri() {
         verificaLogat();
         ArrayList<Enrollment> enrollStudent = enrollmentService.getEnrollments(logat.id);
-        int x=enrollStudent.size();
-        System.out.println(x);
         if(!enrollStudent.isEmpty()) {
             for (int i = 0; i < enrollStudent.size(); i++) {
                 int courseID = enrollStudent.get(i).courseID;
-                courseService.getCourseById(courseID);
+                course = courseService.getCourseById(courseID);
+                System.out.println(course.name);
             }
         }
     }
@@ -220,5 +223,15 @@ public class StudentView {
             System.out.println("V-ati inscris cu succes la cursul " + course.name);
         }
     }
+    void creeazaCurs() {
+        verificaLogat();
+        System.out.println("Ce denumire are cursul pe care doriti sa il creati?");
+        String numeCurs = sc.nextLine();
+        System.out.println("Din ce departament face parte?");
+        String numeDepart = sc.nextLine();
+        courseService.createCurs(numeCurs, numeDepart);
+        System.out.println("Cursul a fost adaugat cu succes");
+    }
+    
 }
 

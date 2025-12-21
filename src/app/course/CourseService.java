@@ -34,12 +34,13 @@ public class CourseService {
 
 
 
-    public void getCourseById(int courseID) {
+    public Course getCourseById(int courseID) {
         for(int i = 0; i < listaCourses.size(); i++) {
             if(listaCourses.get(i).id==courseID) {
-                System.out.println(listaCourses.get(i).name);
+                return listaCourses.get(i);
             }
         }
+        return null;
     }
 
     public Course getCourseByName(String courseName) {
@@ -49,6 +50,15 @@ public class CourseService {
             }
         }
         return null;
+    }
+
+    public void createCurs(String name,String depart) {
+        int x = listaCourses.size();
+        Course courseNew = new Course();
+        courseNew.id = 101+x;
+        courseNew.name = name;
+        courseNew.department = depart;
+        listaCourses.add(courseNew);
     }
 
 }
