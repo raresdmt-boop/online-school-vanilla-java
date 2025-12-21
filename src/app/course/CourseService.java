@@ -21,6 +21,7 @@ public class CourseService {
         course2.department = "Administrarea Afacerilor";
 
         Course course3 = new Course();
+
         course3.id = 103;
         course3.name = "Drept Civil";
         course3.department = "Drept";

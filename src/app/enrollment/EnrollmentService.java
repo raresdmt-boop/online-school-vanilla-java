@@ -1,5 +1,6 @@
 package app.enrollment;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -124,13 +125,15 @@ public class EnrollmentService {
         }
     }
 
-    public Enrollment getEnrollments(int studentID){
+
+    public ArrayList<Enrollment> getEnrollments(int studentID){
+        ArrayList<Enrollment> studentEnrollList = new ArrayList<>();
         for (int i = 0; i<enrollmentsList.size(); i++){
             if(enrollmentsList.get(i).studentID==studentID){
-                return  enrollmentsList.get(i);
+                studentEnrollList.add(enrollmentsList.get(i));
             }
         }
-        return null;
+        return studentEnrollList;
     }
 
     public int getCourseByEnrollment(Enrollment enrollment){

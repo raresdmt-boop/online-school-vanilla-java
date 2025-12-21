@@ -9,6 +9,7 @@ import app.enrollment.EnrollmentService;
 import app.students.Student;
 import app.students.StudentService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -195,11 +196,17 @@ public class StudentView {
     boolean verificaApartenenta(Book book) {
        return logat.id == book.studentID;
     }
-    void afiseazaCursuri(){
+    void afiseazaCursuri() {
         verificaLogat();
-        Enrollment enroll = enrollmentService.getEnrollments(logat.id);
-        int courseID = enroll.courseID;
-        courseService.getCourseById(courseID);
+        ArrayList<Enrollment> enrollStudent = enrollmentService.getEnrollments(logat.id);
+        int x=enrollStudent.size();
+        System.out.println(x);
+        if(!enrollStudent.isEmpty()) {
+            for (int i = 0; i < enrollStudent.size(); i++) {
+                int courseID = enrollStudent.get(i).courseID;
+                courseService.getCourseById(courseID);
+            }
+        }
     }
     void inscriereLaCurs() {
         verificaLogat();
