@@ -8,28 +8,12 @@ public class Application {
 
     static void main() {
 
+        BooksService booksService = new BooksService();
 
-        Book t1=  new Book();
+        System.out.println(booksService);
 
-        t1.bookName="test";
-
-
-        Book t2=  new Book();
-
-        t2.bookName="test2";
-
-        Book t3=  new Book();
-        t3.bookName="test3";
+        System.out.println(booksService.cartileStudentului(150));
 
 
-        System.out.println(t2);
-
-
-        System.out.println(t1.bookName);
-
-
-        String text="ana are mere";
-
-        text="ce  mai faci";
     }
 }

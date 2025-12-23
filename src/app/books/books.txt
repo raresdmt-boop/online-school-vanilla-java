@@ -1,0 +1,100 @@
+1,101,Java Basics,2024-01-01
+2,102,Clean Code,2024-01-02
+3,103,Effective Java,2024-01-03
+4,104,Design Patterns,2024-01-04
+5,105,Data Structures,2024-01-05
+6,106,Algorithms,2024-01-06
+7,107,Spring in Action,2024-01-07
+8,108,Java Concurrency,2024-01-08
+9,109,Microservices,2024-01-09
+10,110,System Design,2024-01-10
+11,111,Operating Systems,2024-01-11
+12,112,Computer Networks,2024-01-12
+13,113,Database Systems,2024-01-13
+14,114,SQL Fundamentals,2024-01-14
+15,115,NoSQL Guide,2024-01-15
+16,116,Cloud Computing,2024-01-16
+17,117,Docker Essentials,2024-01-17
+18,118,Kubernetes Basics,2024-01-18
+19,119,DevOps Handbook,2024-01-19
+20,120,Agile Principles,2024-01-20
+21,121,Software Testing,2024-01-21
+22,122,JUnit Practice,2024-01-22
+23,123,Mockito Basics,2024-01-23
+24,124,Refactoring,2024-01-24
+25,125,Domain Driven Design,2024-01-25
+26,126,Head First Java,2024-01-26
+27,127,Python Crash Course,2024-01-27
+28,128,Learning JavaScript,2024-01-28
+29,129,HTML and CSS,2024-01-29
+30,130,Web Development,2024-01-30
+31,131,REST APIs,2024-01-31
+32,132,Spring Boot,2024-02-01
+33,133,Hibernate ORM,2024-02-02
+34,134,Maven Guide,2024-02-03
+35,135,Gradle Basics,2024-02-04
+36,136,Git Essentials,2024-02-05
+37,137,Linux Commands,2024-02-06
+38,138,Bash Scripting,2024-02-07
+39,139,Computer Security,2024-02-08
+40,140,Cybersecurity Basics,2024-02-09
+41,141,Ethical Hacking,2024-02-10
+42,142,Cryptography,2024-02-11
+43,143,Networking Basics,2024-02-12
+44,144,AI Fundamentals,2024-02-13
+45,145,Machine Learning,2024-02-14
+46,146,Data Science,2024-02-15
+47,147,Big Data,2024-02-16
+48,148,Scala for Java Devs,2024-02-17
+49,149,Programming Paradigms,2024-02-18
+50,150,Software Architecture,2024-02-19
+51,101,Object Oriented Programming,2024-02-20
+52,102,Advanced Java,2024-02-21
+53,103,Java Streams,2024-02-22
+54,104,Java Memory Model,2024-02-23
+55,105,Design Principles,2024-02-24
+56,106,Testing Strategies,2024-02-25
+57,107,Continuous Integration,2024-02-26
+58,108,Software Metrics,2024-02-27
+59,109,Clean Architecture,2024-02-28
+60,110,Event Driven Systems,2024-02-29
+61,111,Distributed Systems,2024-03-01
+62,112,Concurrency Patterns,2024-03-02
+63,113,Java Performance,2024-03-03
+64,114,Secure Coding,2024-03-04
+65,115,Application Security,2024-03-05
+66,116,Network Security,2024-03-06
+67,117,Cloud Security,2024-03-07
+68,118,Penetration Testing,2024-03-08
+69,119,Incident Response,2024-03-09
+70,120,Digital Forensics,2024-03-10
+71,121,Threat Modeling,2024-03-11
+72,122,Risk Management,2024-03-12
+73,123,Security Operations,2024-03-13
+74,124,Zero Trust Architecture,2024-03-14
+75,125,Encryption Basics,2024-03-15
+76,126,Public Key Infrastructure,2024-03-16
+77,127,Authentication Systems,2024-03-17
+78,128,Authorization Models,2024-03-18
+79,129,Secure APIs,2024-03-19
+80,130,Web Security,2024-03-20
+81,131,Mobile Security,2024-03-21
+82,132,IoT Security,2024-03-22
+83,133,Malware Analysis,2024-03-23
+84,134,Reverse Engineering,2024-03-24
+85,135,Secure Software Lifecycle,2024-03-25
+86,136,Code Review Practices,2024-03-26
+87,137,Static Code Analysis,2024-03-27
+88,138,Dynamic Testing,2024-03-28
+89,139,Fuzz Testing,2024-03-29
+90,140,Exploit Development,2024-03-30
+91,141,Operating System Security,2024-03-31
+92,142,Memory Management,2024-04-01
+93,143,Garbage Collection,2024-04-02
+94,144,Thread Synchronization,2024-04-03
+95,145,Lock Free Programming,2024-04-04
+96,146,Reactive Systems,2024-04-05
+97,147,Message Queues,2024-04-06
+98,148,Event Streaming,2024-04-07
+99,149,System Monitoring,2024-04-08
+100,150,Logging and Tracing,2024-04-09
