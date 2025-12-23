@@ -232,6 +232,6 @@ public class StudentView {
         courseService.createCurs(numeCurs, numeDepart);
         System.out.println("Cursul a fost adaugat cu succes");
     }
-    
+
 }
 

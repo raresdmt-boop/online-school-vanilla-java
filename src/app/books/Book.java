@@ -6,7 +6,6 @@ public class Book {
     public int studentID;
     public String bookName;
     public String createdAt;
-
     public String descriere(){
         String raspuns="ID "+this.id;
         raspuns+="Student ID "+this.studentID;
