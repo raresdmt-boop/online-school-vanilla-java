@@ -8,11 +8,8 @@ public class Application {
 
     static void main() {
 
-        BooksService booksService = new BooksService();
-
-        System.out.println(booksService);
-
-        System.out.println(booksService.cartileStudentului(150));
+        StudentView studentView = new StudentView();
+        studentView.play();
 
 
     }

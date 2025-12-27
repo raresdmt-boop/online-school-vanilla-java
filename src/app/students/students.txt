@@ -48,3 +48,4 @@
 148,Adelina,Munteanu,adelina.munteanu148@example.com,pass148,21
 149,Iulian,Pirvu,iulian.pirvu149@example.com,pass149,24
 150,Karina,Nedelcu,karina.nedelcu150@example.com,pass150,20
+856,Rares,Dumitru,raresdmt@yahoo.com,1234,31

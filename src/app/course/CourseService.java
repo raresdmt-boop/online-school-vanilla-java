@@ -1,64 +1,92 @@
 package app.course;
 
+import app.enrollment.Enrollment;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CourseService {
 
-    ArrayList<Course> listaCourses = new ArrayList<Course>();
+    private ArrayList<Course> listaCourses;
+    private File coursesFile;
 
-    public void loadCourse() {
-
-        Course course1 = new Course();
-
-        course1.id = 101;
-        course1.name = "Initiere Java";
-        course1.department = "IT";
-
-        Course course2 = new Course();
-
-        course2.id = 102;
-        course2.name = "Macroeconomie";
-        course2.department = "Administrarea Afacerilor";
-
-        Course course3 = new Course();
-
-        course3.id = 103;
-        course3.name = "Drept Civil";
-        course3.department = "Drept";
-
-        listaCourses.add(course1);
-        listaCourses.add(course2);
-        listaCourses.add(course3);
-
+    public CourseService() {
+        listaCourses = new ArrayList<>();
+        coursesFile = new File("C:\\mycode\\initiere-structuri\\StudentBook\\src\\app\\course\\courses.txt");
+        loadCourse();
     }
-
 
 
     public Course getCourseById(int courseID) {
         for(int i = 0; i < listaCourses.size(); i++) {
-            if(listaCourses.get(i).id==courseID) {
+            if(listaCourses.get(i).getId()==courseID) {
                 return listaCourses.get(i);
             }
         }
         return null;
     }
-
     public Course getCourseByName(String courseName) {
         for(int i = 0; i < listaCourses.size(); i++) {
-            if(listaCourses.get(i).name.equals(courseName)) {
+            if(listaCourses.get(i).getName().equals(courseName)) {
                 return  listaCourses.get(i);
             }
         }
         return null;
     }
-
     public void createCurs(String name,String depart) {
         int x = listaCourses.size();
         Course courseNew = new Course();
-        courseNew.id = 101+x;
-        courseNew.name = name;
-        courseNew.department = depart;
+        courseNew.setId(1001+x);
+        courseNew.setName(name);
+        courseNew.setDepartment(depart);
         listaCourses.add(courseNew);
+        saveCourse(listaCourses);
     }
 
-}
+    private void loadCourse() {
+
+        try{
+            Scanner sc = new Scanner(coursesFile);
+            while(sc.hasNextLine()){
+                String line = sc.nextLine();
+                try{
+                    this.listaCourses.add(new Course(line));
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    private void saveCourse(ArrayList<Course> listaCourses) {
+        try{
+            FileWriter fw = new FileWriter(coursesFile);
+            PrintWriter pw = new PrintWriter(fw);
+            for(Course course : this.listaCourses){
+                pw.println(course.toString());
+            }
+            pw.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private void saveCourse(){
+        try {
+            FileWriter fw = new FileWriter(coursesFile);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.write(this.toString());
+            pw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    }
+
+
